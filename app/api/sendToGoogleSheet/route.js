@@ -11,23 +11,11 @@ export async function POST(req, res) {
       'https://www.googleapis.com/auth/spreadsheets',
       'https://www.googleapis.com/auth/drive.file',
     ];
-    if (!process.env.GOOGLE_SERVICE_KEY) {
-        console.error('GOOGLE_SERVICE_KEY is undefined');
-        // Handle error appropriately
-    }
-    
-    // Assuming process.env.GOOGLE_SERVICE_KEY is being used in Buffer.from
-    try {
-        const credentials = JSON.parse(Buffer.from(process.env.GOOGLE_SERVICE_KEY, 'base64').toString());
-        // Further processing...
-    } catch (error) {
-        console.error('Error parsing GOOGLE_SERVICE_KEY:', error);
-        // Handle error appropriately
-    }
+
     // Authenticate with the Google Sheets API
     const jwt = new JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: credentials.replace(/\\n/g, '\n'),
+      key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
       scopes: SCOPES,
     });
 
@@ -36,8 +24,6 @@ export async function POST(req, res) {
     const doc = new GoogleSpreadsheet('14zTvdquPQTNeAqqp3_8oxvpZN0Jp-vvYUJJCsULNhPc', jwt)
 
     await doc.loadInfo(); // loads document properties and worksheets
-
-    console.log(credentials)
 
     const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
     // Add a row with the form data
