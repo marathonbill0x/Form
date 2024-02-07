@@ -12,7 +12,7 @@ export default function Form() {
 
   const [showForm, setShowForm] = useState(true)
 
-  const handleChange = (e) => {
+  const handleChange = (e : any) => {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
@@ -20,7 +20,7 @@ export default function Form() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
     // Send the data to our API route
     const res = await fetch('/api/sendToGoogleSheet', {
