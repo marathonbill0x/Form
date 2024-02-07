@@ -12,6 +12,10 @@ export async function POST(req, res) {
       'https://www.googleapis.com/auth/drive.file',
     ];
 
+    if (!process.env.GOOGLE_PRIVATE_KEY) {
+      console.log("no key")
+    }
+
     // Authenticate with the Google Sheets API
     const jwt = new JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
