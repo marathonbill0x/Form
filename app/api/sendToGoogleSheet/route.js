@@ -11,11 +11,11 @@ export async function POST(req, res) {
       'https://www.googleapis.com/auth/spreadsheets',
       'https://www.googleapis.com/auth/drive.file',
     ];
-
+    const credentials = JSON.parse(Buffer.from(process.env.GOOGLE_SERVICE_KEY, 'base64').toString());
     // Authenticate with the Google Sheets API
     const jwt = new JWT({
       email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      key: process.env.GOOGLE_PRIVATE_KEY,
+      key: credentials.private_key.replace(/\\n/g, '\n'),
       scopes: SCOPES,
     });
 
