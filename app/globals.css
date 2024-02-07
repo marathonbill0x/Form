@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: black;
 }
 
 @layer utilities {
@@ -38,7 +33,7 @@ input {
   border-radius: 12px;
   padding: 9px;
   margin: 5px;
-
+  text-align: center;
 }
 
 select {
@@ -46,6 +41,7 @@ select {
   border-radius: 12px;
   padding: 9px;
   margin: 5px;
+  text-align: center;
 }
 
 form > button {
@@ -64,4 +60,5 @@ form > button {
 
 label {
     width: 100%;
+    color: white;
 }
