@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-export default function Form() {
+export default function Form({release}) {
+
   const [formData, setFormData] = useState({
     username: '',
     packageName: '',
@@ -8,6 +9,7 @@ export default function Form() {
     address: '',
     email: '',
     subscribe: false,
+    release: release
   });
 
   const [showForm, setShowForm] = useState(true)
@@ -42,6 +44,7 @@ export default function Form() {
   return (
     <>
     { showForm ? <form onSubmit={handleSubmit} className="flex flex-col items-center w-100">
+      <h1>Release: {release}</h1>
       <input
         type="text"
         name="username"

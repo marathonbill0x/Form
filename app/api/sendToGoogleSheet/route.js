@@ -5,8 +5,8 @@ import { JWT } from 'google-auth-library'
 export async function POST(req, res) {
   try {
     const body = await req.json()
-    const {username, packageName, tshirtSize, address, email, subscribe } = body
-
+    const {username, packageName, tshirtSize, address, email, subscribe, release } = body
+    console.log(release)
     const SCOPES = [
       'https://www.googleapis.com/auth/spreadsheets',
       'https://www.googleapis.com/auth/drive.file',
@@ -20,10 +20,13 @@ export async function POST(req, res) {
       key: key,
       scopes: SCOPES,
     });
-
+    let doc;
     console.log(tshirtSize)
-
-    const doc = new GoogleSpreadsheet('14zTvdquPQTNeAqqp3_8oxvpZN0Jp-vvYUJJCsULNhPc', jwt)
+    if(release == 1) {
+      doc = new GoogleSpreadsheet('14zTvdquPQTNeAqqp3_8oxvpZN0Jp-vvYUJJCsULNhPc', jwt)
+    } else if (release == 2){
+      doc = new GoogleSpreadsheet('1zJAwOVFTApPr-ykgYe17KCJTmNtBUtkHgsxWbt5J_qg', jwt)
+    }
 
     await doc.loadInfo(); // loads document properties and worksheets
 
