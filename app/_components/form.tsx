@@ -54,6 +54,7 @@ export default function Form({release} : FormProps) {
         placeholder="Username for X/Twitter"
         value={formData.username}
         onChange={handleChange}
+        required
       />
       <input
         type="text"
@@ -61,8 +62,9 @@ export default function Form({release} : FormProps) {
         placeholder="Name for Package"
         value={formData.packageName}
         onChange={handleChange}
+        required
       />
-      <select name="tshirtSize" value={formData.tshirtSize} onChange={handleChange}>
+      <select name="tshirtSize" value={formData.tshirtSize} onChange={handleChange} required>
         <option value="">Select T-Shirt Size</option>
         <option value="S">S</option>
         <option value="M">M</option>
@@ -78,6 +80,7 @@ export default function Form({release} : FormProps) {
         placeholder="Shipping Address"
         value={formData.address}
         onChange={handleChange}
+        required
       />
       <input
         type="email"
@@ -85,6 +88,7 @@ export default function Form({release} : FormProps) {
         placeholder="Email"
         value={formData.email}
         onChange={handleChange}
+        required
       />
     <label className="flex items-center justify-center m-5 font-black">
         <input
