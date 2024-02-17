@@ -1,6 +1,9 @@
 import { useState } from 'react';
+interface FormProps {
+  release: number; // Use the appropriate type for `release` here
+}
 
-export default function Form({release}) {
+export default function Form({release} : FormProps) {
 
   const [formData, setFormData] = useState({
     username: '',
