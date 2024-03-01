@@ -26,7 +26,10 @@ export async function POST(req, res) {
       doc = new GoogleSpreadsheet('14zTvdquPQTNeAqqp3_8oxvpZN0Jp-vvYUJJCsULNhPc', jwt)
     } else if (release == 2){
       doc = new GoogleSpreadsheet('1zJAwOVFTApPr-ykgYe17KCJTmNtBUtkHgsxWbt5J_qg', jwt)
+    } else if (release == 3){
+      doc = new GoogleSpreadsheet('1G1piSJ8UK50YKEmtqJAB42umCQ9vZxtKk_xM2_VLfWQ', jwt)
     }
+    
 
     await doc.loadInfo(); // loads document properties and worksheets
 
