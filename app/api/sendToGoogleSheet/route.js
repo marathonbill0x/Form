@@ -28,6 +28,10 @@ export async function POST(req, res) {
       doc = new GoogleSpreadsheet('1zJAwOVFTApPr-ykgYe17KCJTmNtBUtkHgsxWbt5J_qg', jwt)
     } else if (release == 3){
       doc = new GoogleSpreadsheet('1G1piSJ8UK50YKEmtqJAB42umCQ9vZxtKk_xM2_VLfWQ', jwt)
+    } else if (release == 4){
+      doc = new GoogleSpreadsheet('1OdrBsMcqQRGlWQLzQ-tNauI9OElnEmFmc60RN66oY1o', jwt)
+    } else if (release == 5){
+      doc = new GoogleSpreadsheet('1JMBxO4msCVIlAjb_UH8CTPWMrtqsknpm33-gtIxhg8E', jwt)
     }
     
 
